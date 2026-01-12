@@ -53,7 +53,11 @@ class ListaTarefas:
                 indice = len(f.readlines())
 
             with open(self.arquivo_tarefas, "a", encoding="utf-8") as f:
-                print(f"{indice},{tarefa},{tempo}", file=f)
+                print(f"{indice},{tarefa},", file=f,end='')
+                if tempo == 0:
+                    print("Indefinido",file=f)
+                else:
+                    print(tempo,file=f)
 
             return 0
         except Exception as e:
@@ -180,7 +184,7 @@ def main(args, logger) -> int:
 
 # ===================== ENTRADA =====================
 if __name__ == "__main__":
-    VERSAO = "1.0.1"
+    VERSAO = "1.0.1b"
     handler = logging.StreamHandler()
 
     handler.setFormatter(
@@ -192,7 +196,7 @@ if __name__ == "__main__":
                 "INFO": "green",
                 "WARNING": "yellow",
                 "ERROR": "red",
-                "CRITICAL": "red,bg_white",
+                "CRITICAL": "red",
             },
         )
     )
@@ -232,7 +236,7 @@ if __name__ == "__main__":
     # ADD
     opts.add_argument(
         "--ADD",
-        help="Adiciona mais uma tarefa na lista de tarefas",
+        help="Adiciona mais uma tarefa na lista de tarefas (Tempo=0 é indefinido)",
         dest="add_option",
         nargs=2,
         metavar=("TAREFA", "TEMPO")

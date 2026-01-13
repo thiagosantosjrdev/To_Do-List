@@ -196,7 +196,7 @@ if __name__ == "__main__":
                 "INFO": "green",
                 "WARNING": "yellow",
                 "ERROR": "red",
-                "CRITICAL": "red",
+                "CRITICAL": "bold_red",
             },
         )
     )

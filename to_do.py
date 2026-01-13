@@ -184,7 +184,7 @@ def main(args, logger) -> int:
 
 # ===================== ENTRADA =====================
 if __name__ == "__main__":
-    VERSAO = "1.0.1b"
+    VERSAO = "1.0.1c"
     handler = logging.StreamHandler()
 
     handler.setFormatter(
